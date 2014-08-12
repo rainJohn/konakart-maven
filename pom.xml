@@ -13,7 +13,7 @@
         <konakart_version>7.2.0.2</konakart_version>
         <java.source>1.6</java.source>
         <java.target>1.6</java.target>
-        <repository.url>http://maven.t.is</repository.url>
+        <repository.url></repository.url>
     </properties>
 
     <modules>
