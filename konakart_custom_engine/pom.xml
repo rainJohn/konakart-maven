@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>is.tmsoftware</groupId>
+        <artifactId>konakart-parent</artifactId>
+        <version>1.0.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>konakart_custom_engine</artifactId>
+    <version>1.0.0.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.konakart</groupId>
+            <artifactId>konakart</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.konakart</groupId>
+            <artifactId>konakart_app</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.konakart</groupId>
+            <artifactId>konakart_utils</artifactId>
+        </dependency>
+        <dependency>
+   			<groupId>commons-logging</groupId>
+   			<artifactId>commons-logging</artifactId>
+   		</dependency>
+   		<dependency>
+   			<groupId>commons-lang</groupId>
+   			<artifactId>commons-lang</artifactId>
+   		</dependency>
+   	</dependencies>
+
+</project>
