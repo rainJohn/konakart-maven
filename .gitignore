@@ -12,8 +12,10 @@
 hs_err_pid*
 
 #Ignore idea files
-.iml
-.idea
+*.iml
+*.idea
 
 #Ignore target
 target/
+
+.svn/

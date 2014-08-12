@@ -1,4 +1,4 @@
 konakart-maven
 ==============
 
-KonaKart custom sources using Maven
+KonaKart 7.2.0.2 custom sources using Maven
