@@ -23,6 +23,7 @@
         <module>konakartadmin_custom_engine</module>
         <module>konakart_custom</module>
         <module>konakart_modules</module>
+        <module>konakart_payment_borgun</module>
     </modules>
 
     <dependencyManagement>

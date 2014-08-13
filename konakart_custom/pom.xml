@@ -81,10 +81,6 @@
             <groupId>com.konakart</groupId>
             <artifactId>konakart_torque-4.0</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>torque</groupId>-->
-            <!--<artifactId>village</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
