@@ -176,8 +176,6 @@
                 <artifactId>commons-fileupload</artifactId>
                 <version>1.2</version>
             </dependency>
-
-            <!-- Project -->
             <dependency>
                 <groupId>is.tmsoftware</groupId>
                 <artifactId>konakartadmin_custom</artifactId>
@@ -206,19 +204,17 @@
         </dependencies>
     </dependencyManagement>
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
-                    <configuration>
-                        <source>${java.source}</source>
-                        <target>${java.target}</target>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.source}</source>
+                    <target>${java.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     <repositories>
         <repository>

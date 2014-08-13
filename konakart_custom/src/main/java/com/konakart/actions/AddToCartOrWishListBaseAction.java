@@ -89,7 +89,6 @@ public class AddToCartOrWishListBaseAction extends BaseAction
     {
         if (prod != null)
         {
-            System.out.println("Adding to cart!");
             if (kkAppEng.getQuotaMgr().canAddToBasket(prod.getId(), opts) > 0)
             {
                 BasketIf b = new Basket();

@@ -12,6 +12,7 @@
 
     <artifactId>konakartadmin_custom_engine</artifactId>
     <version>1.0.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
