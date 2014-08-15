@@ -44,10 +44,6 @@
             <artifactId>commons-lang</artifactId>
         </dependency>
         <dependency>
-            <groupId>net.taxcloud</groupId>
-            <artifactId>taxcloud</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.konakart</groupId>
             <artifactId>konakart_torque-4.0</artifactId>
         </dependency>

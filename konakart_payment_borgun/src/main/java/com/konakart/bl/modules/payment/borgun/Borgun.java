@@ -247,6 +247,7 @@ public class Borgun extends BasePaymentModule implements PaymentInterface {
         pDetails.setShowType(false); // Borgun doesn't require the card type
         pDetails.setShowOwner(true);
 
+
         if (log.isDebugEnabled()) {
             log.debug(pDetails.toString());
         }

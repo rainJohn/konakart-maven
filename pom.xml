@@ -24,6 +24,7 @@
         <module>konakart_custom</module>
         <module>konakart_modules</module>
         <module>konakart_payment_borgun</module>
+        <module>konakart_product_scheduler</module>
     </modules>
 
     <dependencyManagement>

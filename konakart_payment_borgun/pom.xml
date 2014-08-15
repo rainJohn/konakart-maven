@@ -14,19 +14,19 @@
     <packaging>jar</packaging>
 
     <dependencies>
-   		<dependency>
-   			<groupId>is.tmsoftware</groupId>
-   			<artifactId>konakart_custom</artifactId>
-   		</dependency>
-   		<dependency>
-   			<groupId>com.konakart</groupId>
-   			<artifactId>konakartadmin</artifactId>
-   		</dependency>
-   		<dependency>
-   			<groupId>javax.servlet</groupId>
-   			<artifactId>javax.servlet-api</artifactId>
+        <dependency>
+            <groupId>is.tmsoftware</groupId>
+            <artifactId>konakart_custom</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.konakart</groupId>
+            <artifactId>konakartadmin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
-   		</dependency>
-   	</dependencies>
+        </dependency>
+    </dependencies>
 
 </project>

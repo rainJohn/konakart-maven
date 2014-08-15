@@ -10237,9 +10237,9 @@ protected KKAdminException manageThrowable(Throwable e)
      }
 
     /**
-     * Executes the batch job with the specified group and name.
+     * Executes the batch jobs with the specified group and name.
      * <p>
-     * The batch job must be defined as one the existing batch jobs in the system.
+     * The batch jobs must be defined as one the existing batch jobs in the system.
      * <p>
      * For Quartz jobs, the paramAray is not actually used but it is provided should these
      * parameters be required for overriding the implementation of this method in a custom engine.
@@ -10247,12 +10247,12 @@ protected KKAdminException manageThrowable(Throwable e)
      * @param sessionId
      *            The sessionId
      * @param group
-     *            The group of the batch job to be run
+     *            The group of the batch jobs to be run
      * @param name
-     *            The name of the batch job to be executed
+     *            The name of the batch jobs to be executed
      * @param paramArray
      *            A generic set of Strings that can be used for custom purposes.
-     * @return Returns true if the job was successfully started, otherwise false
+     * @return Returns true if the jobs was successfully started, otherwise false
      * @throws KKAdminException
      */
      public boolean runBatchJob(String sessionId, String group, String name, String[] paramArray) throws KKAdminException
