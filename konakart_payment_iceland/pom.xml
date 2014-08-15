@@ -9,7 +9,7 @@
         <artifactId>konakart-parent</artifactId>
         <version>1.0.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>konakart_payment_borgun</artifactId>
+    <artifactId>konakart_payment_iceland</artifactId>
     <version>1.0.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
