@@ -17,15 +17,6 @@
 
 package com.konakart.actions.ipn;
 
-import java.util.Enumeration;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.struts2.ServletActionContext;
-
 import com.konakart.actions.gateways.BaseGatewayAction;
 import com.konakart.al.KKAppEng;
 import com.konakart.app.IpnHistory;
@@ -35,10 +26,17 @@ import com.konakart.appif.IpnHistoryIf;
 import com.konakart.appif.OrderUpdateIf;
 import com.konakart.appif.SSOTokenIf;
 import com.konakart.bl.ConfigConstants;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
 
 /**
  * This class is an Action class for what to do when a payment notification callback is received
- * from PayPal.
+ * from Valitor.
  */
 public class ValitorAction extends BaseGatewayAction
 {
@@ -49,9 +47,9 @@ public class ValitorAction extends BaseGatewayAction
 
     // Module name must be the same as the class name although it can be all in lowercase in order
     // to remain compatible with osCommerce.
-    private static String code = "paypal";
+    private static String code = "valitor";
 
-    // PayPal constants
+    // Valitor constants
     private static final String custom = "custom";
 
     private static final String payment_status = "payment_status";
@@ -70,9 +68,9 @@ public class ValitorAction extends BaseGatewayAction
     private static final String RET4_DESC = "There has been an unexpected exception. Please look at the log.";
 
     // Order history comments. These comments are associated with the order.
-    private static final String ORDER_HISTORY_COMMENT_OK = "PayPal payment successful. PayPal TransactionId = ";
+    private static final String ORDER_HISTORY_COMMENT_OK = "Valitor payment successful. Valitor TransactionId = ";
 
-    private static final String ORDER_HISTORY_COMMENT_KO = "PayPal payment not successful. PayPal Payment Status = ";
+    private static final String ORDER_HISTORY_COMMENT_KO = "Valitor payment not successful. Valitor Payment Status = ";
 
     private static final long serialVersionUID = 1L;
 
@@ -85,7 +83,7 @@ public class ValitorAction extends BaseGatewayAction
 
         if (log.isDebugEnabled())
         {
-            log.debug("*********** PayPal Callback");
+            log.debug("*********** Valitor Callback");
         }
 
         // Create these outside of try / catch since they are needed in the case of a general
@@ -112,7 +110,7 @@ public class ValitorAction extends BaseGatewayAction
             if (uuid == null)
             {
                 throw new Exception(
-                        "The callback from PayPal did not contain the 'custom' parameter.");
+                        "The callback from Valitor did not contain the 'custom' parameter.");
             }
 
             // Get an instance of the KonaKart engine
@@ -121,7 +119,7 @@ public class ValitorAction extends BaseGatewayAction
             SSOTokenIf token = kkAppEng.getEng().getSSOToken(uuid, /* deleteToken */true);
             if (token == null)
             {
-                throw new Exception("The SSOToken from the PayPal callback is null");
+                throw new Exception("The SSOToken from the Valitor callback is null");
             }
 
             try
@@ -143,7 +141,7 @@ public class ValitorAction extends BaseGatewayAction
             } catch (KKException e)
             {
                 throw new Exception(
-                        "The SessionId from the SSOToken in the PayPal Callback is not valid: "
+                        "The SessionId from the SSOToken in the Valitor Callback is not valid: "
                                 + token.getSessionId());
             }
 
@@ -190,7 +188,7 @@ public class ValitorAction extends BaseGatewayAction
 
             if (log.isDebugEnabled())
             {
-                log.debug("PayPal CallBack data:");
+                log.debug("Valitor CallBack data:");
                 log.debug(sb.toString());
             }
 

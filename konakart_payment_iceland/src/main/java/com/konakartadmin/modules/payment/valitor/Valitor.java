@@ -25,7 +25,7 @@ import com.konakartadmin.modules.PaymentModule;
 import java.util.Date;
 
 /**
- * VALITOR payment module
+ * Valitor payment module
  * 
  */
 public class Valitor extends PaymentModule
@@ -52,7 +52,7 @@ public class Valitor extends PaymentModule
      */
     public String getImplementationFileName()
     {
-        return "VALITOR";
+        return "Valitor";
     }
 
     /**
@@ -60,7 +60,7 @@ public class Valitor extends PaymentModule
      */
     public String getModuleCode()
     {
-        return "VALITOR";
+        return "valitor";
     }
 
     /**
@@ -84,10 +84,10 @@ public class Valitor extends PaymentModule
         int groupId = 6;
 
         configs[i] = new KKConfiguration(
-        /* title */"VALITOR Status",
+        /* title */"Valitor Status",
         /* key */"MODULE_PAYMENT_VALITOR_STATUS",
         /* value */"true",
-        /* description */"If set to false, the VALITOR module will be unavailable",
+        /* description */"If set to false, the Valitor module will be unavailable",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"",
@@ -98,7 +98,7 @@ public class Valitor extends PaymentModule
         /* title */"Sort order of display",
         /* key */"MODULE_PAYMENT_VALITOR_SORT_ORDER",
         /* value */"0",
-        /* description */"Sort Order of VALITOR module on the UI. Lowest is displayed first.",
+        /* description */"Sort Order of Valitor module on the UI. Lowest is displayed first.",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"",
@@ -106,10 +106,10 @@ public class Valitor extends PaymentModule
         /* dateAdd */now);
 
         configs[i] = new KKConfiguration(
-        /* title */"VALITOR Payment Zone",
+        /* title */"Valitor Payment Zone",
         /* key */"MODULE_PAYMENT_VALITOR_ZONE",
         /* value */"0",
-        /* description */"Zone where VALITOR module can be used. Otherwise it is disabled.",
+        /* description */"Zone where Valitor module can be used. Otherwise it is disabled.",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"tep_get_zone_class_title",
@@ -143,8 +143,8 @@ public class Valitor extends PaymentModule
         configs[i] = new KKConfiguration(
         /* title */"Callback URL",
         /* key */"MODULE_PAYMENT_VALITOR_CALLBACK_URL",
-        /* value */"http://host:port/konakart/VALITORCallback.action",
-        /* description */"URL used by VALITOR to callback into KonaKart."
+        /* value */"http://host:port/konakart/ValitorCallback.action",
+        /* description */"URL used by Valitor to callback into KonaKart."
                 + " This would typically be HTTPS",
         /* groupId */groupId,
         /* sortO */i++,
@@ -156,7 +156,7 @@ public class Valitor extends PaymentModule
         /* title */"Return URL",
         /* key */"MODULE_PAYMENT_VALITOR_RETURN_URL",
         /* value */"http://host:port/konakart/CheckoutFinished.action",
-        /* description */"URL to return to when leaving VALITOR web"
+        /* description */"URL to return to when leaving Valitor web"
                 + " site after a successful transaction",
         /* groupId */groupId,
         /* sortO */i++,
@@ -168,7 +168,7 @@ public class Valitor extends PaymentModule
         /* title */"Cancel URL",
         /* key */"MODULE_PAYMENT_VALITOR_CANCEL_URL",
         /* value */"http://host:port/konakart/CatalogCheckoutExternalPaymentErrorPage.action",
-        /* description */"URL to return to when leaving VALITOR web"
+        /* description */"URL to return to when leaving Valitor web"
                 + " site after an unsuccesful transaction",
         /* groupId */groupId,
         /* sortO */i++,
@@ -180,7 +180,7 @@ public class Valitor extends PaymentModule
         /* title */"Test Mode",
         /* key */"MODULE_PAYMENT_VALITOR_TEST_MODE",
         /* value */"true",
-        /* description */"Forces KonaKart to use the VALITOR Sandbox",
+        /* description */"Forces KonaKart to use the Valitor Sandbox",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"",
@@ -188,10 +188,10 @@ public class Valitor extends PaymentModule
         /* dateAdd */now);
 
         configs[i] = new KKConfiguration(
-        /* title */"VALITOR Id",
+        /* title */"Valitor Id",
         /* key */"MODULE_PAYMENT_VALITOR_ID",
-        /* value */"VALITORId",
-        /* description */"The merchant VALITOR Id",
+        /* value */"valitorId",
+        /* description */"The merchant Valitor Id",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"",
@@ -202,7 +202,7 @@ public class Valitor extends PaymentModule
         /* title */"Transaction Currency",
         /* key */"MODULE_PAYMENT_VALITOR_CURRENCY",
         /* value */"Selected Currency",
-        /* description */"Currency to use for VALITOR transaction",
+        /* description */"Currency to use for Valitor transaction",
         /* groupId */groupId,
         /* sortO */i++,
         /* useFun */"",

@@ -31,14 +31,14 @@ import java.math.BigDecimal;
 import java.util.*;
 
 /**
- * valitor IPN module
+ * Valitor IPN module
  */
 public class Valitor extends BasePaymentModule implements PaymentInterface
 {
     // Module name must be the same as the class name although it can be all in lowercase
     private static String code = "valitor";
 
-    private static String bundleName = BaseModule.basePackage + ".payment.valitor.valitor";
+    private static String bundleName = BaseModule.basePackage + ".payment.valitor.Valitor";
 
     private static HashMap<Locale, ResourceBundle> resourceBundleMap = new HashMap<Locale, ResourceBundle>();
 
@@ -52,61 +52,61 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
 
     // Configuration Keys
 
-    private final static String MODULE_PAYMENT_valitor_STATUS = "MODULE_PAYMENT_valitor_STATUS";
+    private final static String MODULE_PAYMENT_VALITOR_STATUS = "MODULE_PAYMENT_VALITOR_STATUS";
 
-    private final static String MODULE_PAYMENT_valitor_ID = "MODULE_PAYMENT_valitor_ID";
+    private final static String MODULE_PAYMENT_VALITOR_ID = "MODULE_PAYMENT_VALITOR_ID";
 
-    private final static String MODULE_PAYMENT_valitor_ZONE = "MODULE_PAYMENT_valitor_ZONE";
+    private final static String MODULE_PAYMENT_VALITOR_ZONE = "MODULE_PAYMENT_VALITOR_ZONE";
 
-    private final static String MODULE_PAYMENT_valitor_ORDER_STATUS_ID = "MODULE_PAYMENT_valitor_ORDER_STATUS_ID";
+    private final static String MODULE_PAYMENT_VALITOR_ORDER_STATUS_ID = "MODULE_PAYMENT_VALITOR_ORDER_STATUS_ID";
 
-    private final static String MODULE_PAYMENT_valitor_SORT_ORDER = "MODULE_PAYMENT_valitor_SORT_ORDER";
+    private final static String MODULE_PAYMENT_VALITOR_SORT_ORDER = "MODULE_PAYMENT_VALITOR_SORT_ORDER";
 
     /**
-     * Username and password used to log into the engine by the IPN call from valitor
+     * Username and password used to log into the engine by the IPN call from Valitor
      */
-    private final static String MODULE_PAYMENT_valitor_CALLBACK_USERNAME = "MODULE_PAYMENT_valitor_CALLBACK_USERNAME";
+    private final static String MODULE_PAYMENT_VALITOR_CALLBACK_USERNAME = "MODULE_PAYMENT_VALITOR_CALLBACK_USERNAME";
 
-    private final static String MODULE_PAYMENT_valitor_CALLBACK_PASSWORD = "MODULE_PAYMENT_valitor_CALLBACK_PASSWORD";
+    private final static String MODULE_PAYMENT_VALITOR_CALLBACK_PASSWORD = "MODULE_PAYMENT_VALITOR_CALLBACK_PASSWORD";
 
     /**
-     * This URL is used by the valitor IPN functionality to call back into the application with the
+     * This URL is used by the Valitor IPN functionality to call back into the application with the
      * results of the payment transaction. It must be a URl that is visible from the internet.
      */
-    private final static String MODULE_PAYMENT_valitor_CALLBACK_URL = "MODULE_PAYMENT_valitor_CALLBACK_URL";
+    private final static String MODULE_PAYMENT_VALITOR_CALLBACK_URL = "MODULE_PAYMENT_VALITOR_CALLBACK_URL";
 
     /**
-     * This URL is used by valitor to redirect the user's browser when returning from the payment
+     * This URL is used by Valitor to redirect the user's browser when returning from the payment
      * gateway. If it is in the form http://host:port/konakart/CheckoutFinished.do, then the string
      * host:port is substituted automatically with the correct value.
      */
-    private final static String MODULE_PAYMENT_valitor_RETURN_URL = "MODULE_PAYMENT_valitor_RETURN_URL";
+    private final static String MODULE_PAYMENT_VALITOR_RETURN_URL = "MODULE_PAYMENT_VALITOR_RETURN_URL";
 
     /**
-     * This URL is used by valitor to redirect the user's browser when returning from the payment
+     * This URL is used by Valitor to redirect the user's browser when returning from the payment
      * gateway after cancelling out of the operation. If it is in the form
      * http://host:port/konakart/CatalogCheckoutExternalPaymentErrorPage.do, then the string
      * host:port is substituted automatically with the correct value.
      */
-    private final static String MODULE_PAYMENT_valitor_CANCEL_URL = "MODULE_PAYMENT_valitor_CANCEL_URL";
+    private final static String MODULE_PAYMENT_VALITOR_CANCEL_URL = "MODULE_PAYMENT_VALITOR_CANCEL_URL";
 
     /**
-     * If set to true, the module will use the valitor sandbox. Otherwise the live URL will be used.
+     * If set to true, the module will use the Valitor sandbox. Otherwise the live URL will be used.
      */
-    private final static String MODULE_PAYMENT_valitor_TEST_MODE = "MODULE_PAYMENT_valitor_TEST_MODE";
+    private final static String MODULE_PAYMENT_VALITOR_TEST_MODE = "MODULE_PAYMENT_VALITOR_TEST_MODE";
 
     // Message Catalogue Keys
 
-    private final static String MODULE_PAYMENT_valitor_TEXT_TITLE = "module.payment.valitor.text.title";
+    private final static String MODULE_PAYMENT_VALITOR_TEXT_TITLE = "module.payment.valitor.text.title";
 
-    private final static String MODULE_PAYMENT_valitor_TEXT_DESCRIPTION = "module.payment.valitor.text.description";
+    private final static String MODULE_PAYMENT_VALITOR_TEXT_DESCRIPTION = "module.payment.valitor.text.description";
 
     /**
      * Constructor
      * 
      * @param eng
      * 
-     * @throws com.konakart.app.KKException
+     * @throws KKException
      */
     public Valitor(KKEngIf eng) throws KKException
     {
@@ -130,7 +130,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
     /**
      * Sets some static variables during setup
      * 
-     * @throws com.konakart.app.KKException
+     * @throws KKException
      * 
      */
     public void setStaticVariables() throws KKException
@@ -143,60 +143,60 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
             staticDataHM.put(getStoreId(), staticData);
         }
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_ID);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_ID);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_ID must be set to the valitor Id of the merchant.");
+                    "The Configuration MODULE_PAYMENT_VALITOR_ID must be set to the Valitor Id of the merchant.");
         }
-        staticData.setvalitorId(conf.getValue());
+        staticData.setValitorId(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_CALLBACK_URL);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_CALLBACK_URL);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_CALLBACK must be set to the Callback Url for the"
-                            + " IPN functionality (i.e. https://myhost/konakart/valitorCallback.do).");
+                    "The Configuration MODULE_PAYMENT_VALITOR_CALLBACK must be set to the Callback Url for the"
+                            + " IPN functionality (i.e. https://myhost/konakart/ValitorCallback.do).");
         }
-        staticData.setvalitorCallbackUrl(conf.getValue());
+        staticData.setValitorCallbackUrl(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_CALLBACK_USERNAME);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_CALLBACK_USERNAME);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_CALLBACK_USERNAME must be set to the Callback Username for the"
+                    "The Configuration MODULE_PAYMENT_VALITOR_CALLBACK_USERNAME must be set to the Callback Username for the"
                             + " IPN functionality.");
         }
-        staticData.setvalitorCallbackUsername(conf.getValue());
+        staticData.setValitorCallbackUsername(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_CALLBACK_PASSWORD);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_CALLBACK_PASSWORD);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_CALLBACK must be set to the Callback Password for the"
+                    "The Configuration MODULE_PAYMENT_VALITOR_CALLBACK must be set to the Callback Password for the"
                             + " IPN functionality.");
         }
-        staticData.setvalitorCallbackPassword(conf.getValue());
+        staticData.setValitorCallbackPassword(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_RETURN_URL);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_RETURN_URL);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_RETURN_URL must be set to the return URL for"
+                    "The Configuration MODULE_PAYMENT_VALITOR_RETURN_URL must be set to the return URL for"
                             + " when the customer leaves the payment gateway. (i.e. http://{host:port}/konakart/CheckoutFinished.do)");
         }
-        staticData.setvalitorReturnUrl(conf.getValue());
+        staticData.setValitorReturnUrl(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_CANCEL_URL);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_CANCEL_URL);
         if (conf == null)
         {
             throw new KKException(
-                    "The Configuration MODULE_PAYMENT_valitor_CANCEL_URL must be set to the return URL for"
+                    "The Configuration MODULE_PAYMENT_VALITOR_CANCEL_URL must be set to the return URL for"
                             + " when the customer leaves the payment gateway by cancelling the operation. (i.e. http://{host:port}/konakart/CatalogCheckoutExternalPaymentErrorPage.do)");
         }
-        staticData.setvalitorCancelUrl(conf.getValue());
+        staticData.setValitorCancelUrl(conf.getValue());
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_ZONE);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_ZONE);
         if (conf == null)
         {
             staticData.setZone(0);
@@ -205,7 +205,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
             staticData.setZone(new Integer(conf.getValue()).intValue());
         }
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_SORT_ORDER);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_SORT_ORDER);
         if (conf == null)
         {
             staticData.setSortOrder(0);
@@ -214,7 +214,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
             staticData.setSortOrder(new Integer(conf.getValue()).intValue());
         }
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_ORDER_STATUS_ID);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_ORDER_STATUS_ID);
         if (conf == null)
         {
             staticData.setOrderStatusId(0);
@@ -223,24 +223,24 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
             staticData.setOrderStatusId(new Integer(conf.getValue()).intValue());
         }
 
-        conf = getConfiguration(MODULE_PAYMENT_valitor_TEST_MODE);
+        conf = getConfiguration(MODULE_PAYMENT_VALITOR_TEST_MODE);
         if (conf == null)
         {
-            staticData.setvalitorTestMode(true);
+            staticData.setValitorTestMode(true);
         } else
         {
             if (conf.getValue().equalsIgnoreCase("false"))
             {
-                staticData.setvalitorTestMode(false);
+                staticData.setValitorTestMode(false);
             } else
             {
-                staticData.setvalitorTestMode(true);
+                staticData.setValitorTestMode(true);
             }
         }
     }
 
     /**
-     * Return a payment details object for valitor IPN module
+     * Return a payment details object for Valitor IPN module
      * 
      * @param order
      * @param info
@@ -277,8 +277,8 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         pDetails.setSortOrder(sd.getSortOrder());
         pDetails.setOrderStatusId(sd.getOrderStatusId());
         pDetails.setPaymentType(PaymentDetails.BROWSER_PAYMENT_GATEWAY);
-        pDetails.setDescription(rb.getString(MODULE_PAYMENT_valitor_TEXT_DESCRIPTION));
-        pDetails.setTitle(rb.getString(MODULE_PAYMENT_valitor_TEXT_TITLE));
+        pDetails.setDescription(rb.getString(MODULE_PAYMENT_VALITOR_TEXT_DESCRIPTION));
+        pDetails.setTitle(rb.getString(MODULE_PAYMENT_VALITOR_TEXT_TITLE));
 
         // Return now if the full payment details aren't required
         if (info.isReturnDetails() == false)
@@ -287,9 +287,9 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         }
 
         pDetails.setPostOrGet("post");
-        if (sd.isvalitorTestMode())
+        if (sd.isValitorTestMode())
         {
-            pDetails.setRequestUrl("https://www.sandbox.valitor.com/cgi-bin/webscr");
+            pDetails.setRequestUrl("https://www.mbl.is");
         } else
         {
             pDetails.setRequestUrl("https://www.valitor.com/cgi-bin/webscr");
@@ -313,19 +313,19 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         if (total == null)
         {
             throw new KKException(
-                    "An Order Total was not found so the payment could not be processed through valitor.");
+                    "An Order Total was not found so the payment could not be processed through Valitor.");
         }
 
         /*
          * Create a session here which will be used by the IPN callback
          */
         SSOTokenIf ssoToken = new SSOToken();
-        String sessionId = getEng().login(sd.getvalitorCallbackUsername(),
-                sd.getvalitorCallbackPassword());
+        String sessionId = getEng().login(sd.getValitorCallbackUsername(),
+                sd.getValitorCallbackPassword());
         if (sessionId == null)
         {
             throw new KKException(
-                    "Unable to log into the engine using the valitor Callback Username and Password");
+                    "Unable to log into the engine using the Valitor Callback Username and Password");
         }
         ssoToken.setSessionId(sessionId);
         ssoToken.setCustom1(String.valueOf(order.getId()));
@@ -335,19 +335,19 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         String uuid = getEng().saveSSOToken(ssoToken);
 
         parmList.add(new NameValue("amount", total.toString()));
-        parmList.add(new NameValue("business", sd.getvalitorId()));
+        parmList.add(new NameValue("business", sd.getValitorId()));
         parmList.add(new NameValue("currency_code", order.getCurrencyCode()));
         parmList.add(new NameValue("custom", uuid));
         //parmList.add(new NameValue("no_shipping", "2"));
         parmList.add(new NameValue("no_note", "1"));
-        parmList.add(new NameValue("notify_url", sd.getvalitorCallbackUrl()));
+        parmList.add(new NameValue("notify_url", sd.getValitorCallbackUrl()));
 
-        sd.setvalitorReturnUrl(sd.getvalitorReturnUrl().replaceFirst(hostPortSubstitute,
+        sd.setValitorReturnUrl(sd.getValitorReturnUrl().replaceFirst(hostPortSubstitute,
                 info.getHostAndPort()));
-        sd.setvalitorCancelUrl(sd.getvalitorCancelUrl().replaceFirst(hostPortSubstitute,
+        sd.setValitorCancelUrl(sd.getValitorCancelUrl().replaceFirst(hostPortSubstitute,
                 info.getHostAndPort()));
-        parmList.add(new NameValue("return", sd.getvalitorReturnUrl()));
-        parmList.add(new NameValue("cancel_return", sd.getvalitorCancelUrl()));
+        parmList.add(new NameValue("return", sd.getValitorReturnUrl()));
+        parmList.add(new NameValue("cancel_return", sd.getValitorCancelUrl()));
 
         // Added for anti-fraud operations
 
@@ -430,11 +430,11 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
     /**
      * Returns true or false
      * 
-     * @throws com.konakart.app.KKException
+     * @throws KKException
      */
     public boolean isAvailable() throws KKException
     {
-        return isAvailable(MODULE_PAYMENT_valitor_STATUS);
+        return isAvailable(MODULE_PAYMENT_VALITOR_STATUS);
     }
 
     /**
@@ -482,7 +482,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorId
          */
-        public String getvalitorId()
+        public String getValitorId()
         {
             return valitorId;
         }
@@ -491,7 +491,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorId
          *            the valitorId to set
          */
-        public void setvalitorId(String valitorId)
+        public void setValitorId(String valitorId)
         {
             this.valitorId = valitorId;
         }
@@ -499,7 +499,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorCallbackUrl
          */
-        public String getvalitorCallbackUrl()
+        public String getValitorCallbackUrl()
         {
             return valitorCallbackUrl;
         }
@@ -508,7 +508,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorCallbackUrl
          *            the valitorCallbackUrl to set
          */
-        public void setvalitorCallbackUrl(String valitorCallbackUrl)
+        public void setValitorCallbackUrl(String valitorCallbackUrl)
         {
             this.valitorCallbackUrl = valitorCallbackUrl;
         }
@@ -516,7 +516,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorReturnUrl
          */
-        public String getvalitorReturnUrl()
+        public String getValitorReturnUrl()
         {
             return valitorReturnUrl;
         }
@@ -525,7 +525,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorReturnUrl
          *            the valitorReturnUrl to set
          */
-        public void setvalitorReturnUrl(String valitorReturnUrl)
+        public void setValitorReturnUrl(String valitorReturnUrl)
         {
             this.valitorReturnUrl = valitorReturnUrl;
         }
@@ -533,7 +533,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorCancelUrl
          */
-        public String getvalitorCancelUrl()
+        public String getValitorCancelUrl()
         {
             return valitorCancelUrl;
         }
@@ -542,7 +542,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorCancelUrl
          *            the valitorCancelUrl to set
          */
-        public void setvalitorCancelUrl(String valitorCancelUrl)
+        public void setValitorCancelUrl(String valitorCancelUrl)
         {
             this.valitorCancelUrl = valitorCancelUrl;
         }
@@ -550,7 +550,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorTestMode
          */
-        public boolean isvalitorTestMode()
+        public boolean isValitorTestMode()
         {
             return valitorTestMode;
         }
@@ -559,7 +559,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorTestMode
          *            the valitorTestMode to set
          */
-        public void setvalitorTestMode(boolean valitorTestMode)
+        public void setValitorTestMode(boolean valitorTestMode)
         {
             this.valitorTestMode = valitorTestMode;
         }
@@ -601,7 +601,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorCallbackUsername
          */
-        public String getvalitorCallbackUsername()
+        public String getValitorCallbackUsername()
         {
             return valitorCallbackUsername;
         }
@@ -610,7 +610,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorCallbackUsername
          *            the valitorCallbackUsername to set
          */
-        public void setvalitorCallbackUsername(String valitorCallbackUsername)
+        public void setValitorCallbackUsername(String valitorCallbackUsername)
         {
             this.valitorCallbackUsername = valitorCallbackUsername;
         }
@@ -618,7 +618,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
         /**
          * @return the valitorCallbackPassword
          */
-        public String getvalitorCallbackPassword()
+        public String getValitorCallbackPassword()
         {
             return valitorCallbackPassword;
         }
@@ -627,7 +627,7 @@ public class Valitor extends BasePaymentModule implements PaymentInterface
          * @param valitorCallbackPassword
          *            the valitorCallbackPassword to set
          */
-        public void setvalitorCallbackPassword(String valitorCallbackPassword)
+        public void setValitorCallbackPassword(String valitorCallbackPassword)
         {
             this.valitorCallbackPassword = valitorCallbackPassword;
         }
